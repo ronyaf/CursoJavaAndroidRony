@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import devandroid.rony.applistacurso.R;
 import devandroid.rony.applistacurso.model.Pessoa;
@@ -32,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         pessoa = new Pessoa();
         //Atribuir conteúdo, dados, valores para o objeto
         //Conforme o seu MODELO, Template
-        pessoa.setPrimeiroNome("Rony");
-        pessoa.setSobreNome("Franck");
-        pessoa.setCursoDesejado("Android");
-        pessoa.setTelefoneContato("21-999999999");
+       // pessoa.setPrimeiroNome("Rony");
+       // pessoa.setSobreNome("Franck");
+       // pessoa.setCursoDesejado("Android");
+       // pessoa.setTelefoneContato("21-999999999");
 
         editPrimeiroNomeAluno = findViewById(R.id.editPrimeiroNomeAluno);
         editSobrenomeAluno = findViewById(R.id.editSobrenomeAluno);
@@ -50,6 +52,38 @@ public class MainActivity extends AppCompatActivity {
         editSobrenomeAluno.setText(pessoa.getSobreNome());
         editNomeDoCurso.setText(pessoa.getCursoDesejado());
         editTelefoneContato.setText(pessoa.getTelefoneContato());
+
+        btnLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editPrimeiroNomeAluno.setText("");
+                editSobrenomeAluno.setText("");
+                editNomeDoCurso.setText("");
+                editTelefoneContato.setText("");
+            }
+        });
+
+        btnFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"Volte Sempre", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        btnSalvar.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                pessoa.setPrimeiroNome(editPrimeiroNomeAluno.getText().toString());
+                pessoa.setSobreNome(editSobrenomeAluno.getText().toString());
+                pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
+                pessoa.setCursoDesejado(editNomeDoCurso.getText().toString());
+
+                Toast.makeText(MainActivity.this,"Salvo"+pessoa.toString(), Toast.LENGTH_LONG).show();
+
+            }
+        }));
 
    /*     dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
