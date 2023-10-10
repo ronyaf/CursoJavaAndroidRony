@@ -14,9 +14,6 @@ import devandroid.rony.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
-
-    String dadosPessoa;
-
     EditText editPrimeiroNomeAluno;
     EditText editSobrenomeAluno;
     EditText editNomeDoCurso;
@@ -32,12 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();
-        //Atribuir conteúdo, dados, valores para o objeto
-        //Conforme o seu MODELO, Template
-       // pessoa.setPrimeiroNome("Rony");
-       // pessoa.setSobreNome("Franck");
-       // pessoa.setCursoDesejado("Android");
-       // pessoa.setTelefoneContato("21-999999999");
+
 
         editPrimeiroNomeAluno = findViewById(R.id.editPrimeiroNomeAluno);
         editSobrenomeAluno = findViewById(R.id.editSobrenomeAluno);
@@ -66,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"Volte Sempre", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Volte Sempre", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
@@ -80,21 +72,12 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
                 pessoa.setCursoDesejado(editNomeDoCurso.getText().toString());
 
-                Toast.makeText(MainActivity.this,"Salvo"+pessoa.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
 
             }
         }));
 
-   /*     dadosPessoa = "Primeiro nome: ";
-        dadosPessoa += pessoa.getPrimeiroNome();
-        dadosPessoa += " Sobrenome: ";
-        dadosPessoa += pessoa.getSobreNome();
-        dadosPessoa += " Curso Desejado: ";
-        dadosPessoa += pessoa.getCursoDesejado();
-        dadosPessoa += " Telefone de Contato: ";
-        dadosPessoa += pessoa.getTelefoneContato();
-*/
-        Log.i("PooAndroid",pessoa.toString());
+        Log.i("PooAndroid", pessoa.toString());
 
     }
 }
