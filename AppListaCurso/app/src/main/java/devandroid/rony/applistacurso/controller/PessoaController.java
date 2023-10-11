@@ -1,5 +1,6 @@
 package devandroid.rony.applistacurso.controller;
 
+
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,8 @@ public class PessoaController {
     }
 
     public void salvar(Pessoa pessoa) {
-        Log.d("MVC_controlle", "salvo:"+pessoa.toString());
+        Log.d("MVC_controlle", "salvo:" + pessoa.toString());
+
     }
+
 }
